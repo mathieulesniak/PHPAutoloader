@@ -9,10 +9,21 @@ class AutoLoader
 		$convertedClassName = preg_replace('|([a-z])([A-Z])|', '$1_$2', $class);
 		$splitted 			= explode('_', $convertedClassName);
 		$classType 			= strtolower(array_pop($splitted));
-		$dir 				= isset(self::$dirMap[$classType]) ? self::$dirMap[$classType] : ( isset(self::$dirMap['default']) ? self::$dirMap['default'] : '');
+		$dir 				= '';
+		
+		if ( isset(self::$dirMap[$classType]) )
+		{
+			$dir = self::$dirMap[$classType];
+			$filename = self::$root . '/' . $dir . '/' . str_replace(ucFirst($classType), '', $class) . '.php';
+		}
+		else if ( isset(self::$dirMap['default']) )
+		{
+			$dir = self::$dirMap['default'];
+			$filename = self::$root . '/' . $dir . '/' . $class . '.php';
+		}
+		
 		if ( $dir != '' )
 		{	
-			$filename = self::$root . '/' . $dir . '/' . str_replace(ucFirst($classType), '', $class) . '.php';
 			if ( is_file($filename) )
 			{
 				include $filename;
@@ -57,5 +68,4 @@ class AutoLoader
 }
 
 class AutoloaderException extends Exception {}
-
 ?>
