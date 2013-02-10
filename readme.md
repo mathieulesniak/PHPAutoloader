@@ -34,7 +34,7 @@ All you need to to is define your mapping in an associative array, using objects
 
 You can define a "default" directory where all non matched object will be located.
 
-PHPLoader use camelCase naming convention to get object type, ie myClassModel will be matched as a "model", myObjectView as a "view".
+PHPLoader use camelCase naming convention to get object type, ie myClassModel will be matched as a "model", myObjectView as a "view", etc.
 
 Dependencies
 ----------------------------------------
