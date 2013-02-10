@@ -6,10 +6,6 @@ Simple PHP Autoloader
 
 **PHPAutoloader** is a simple autoloader class, with support of directory mapping.
 
-
-All you have to do is to defines routes, according to your URLs, and specify controller / method associated and implements it with your own MVC.
-
-
 **PHPAutoloader** is heavily based on [Laurent Goussard](https://github.com/mathieulesniak/eSKUeL/blob/master/libs/init.inc.php)'s script.
 
 Installation
